@@ -32,7 +32,6 @@ public class PhoneBookMain {
                     String jobTitle = scanner.nextLine();
                     if (jobTitle.isEmpty()) jobTitle = null;
 
-                    // בניית איש קשר
                     Contact newContact = new Contact(
                         firstName, lastName, primaryPhone,
                         secondaryPhone, address, jobTitle
@@ -116,7 +115,7 @@ public class PhoneBookMain {
                     phoneBook.saveToFile(saveFileName);
                     break;
 
-                case "9": // טעינת אנשי קשר מקובץ (אשר לא קיימים עדיין)
+                case "9": // טעינת אנשי קשר מקובץ ( לא קיימים עדיין)
                     System.out.println("Enter file name to load (e.g. contacts.txt):");
                     String loadFileName = scanner.nextLine();
                     phoneBook.loadFromFile(loadFileName);
