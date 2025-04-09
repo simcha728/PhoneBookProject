@@ -10,7 +10,7 @@ public class PhoneBook {
         this.contacts = new ArrayList<>();
     }
 
-    // 1. הוספת איש קשר (ללא ולידציה)
+    // 1. הוספת איש קשר 
     public void addContact(Contact contact) {
         contacts.add(contact);
     }
@@ -93,8 +93,7 @@ public class PhoneBook {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(";");
-                // גם כאן אנחנו לא "בולמים" אם parts.length<3 – רק ממשיכים
-                // אך כדי לא לקרוס נבדוק שיש לפחות 3 שדות (אפשר גם להשמיט את הבדיקה לגמרי)
+                //    לפחות 3 שדות 
                 if (parts.length < 3) {
                     continue;
                 }
@@ -106,7 +105,7 @@ public class PhoneBook {
                 String address  = (parts.length > 4) ? parts[4] : "";
                 String jobTitle = (parts.length > 5) ? parts[5] : "";
 
-                // בודקים אם איש קשר זה כבר קיים
+                // אם איש קשר זה קיים
                 if (!isContactExist(fName, lName, pPhone)) {
                     Contact newContact = new Contact(
                         fName, lName, pPhone, sPhone, address, jobTitle
@@ -120,7 +119,6 @@ public class PhoneBook {
         }
     }
 
-    // פונקציית עזר לבדיקת קיום איש קשר (FirstName + LastName + PrimaryPhone)
     private boolean isContactExist(String firstName, String lastName, String primaryPhone) {
         for (Contact c : contacts) {
             if (c.getFirstName().equals(firstName) &&
